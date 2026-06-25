@@ -1,36 +1,53 @@
-# 🔐 Secure Case - Akıllı Güvenlik ve IoT Kasa Sistemi
-**Secure Case**, fiziksel güvenliği modern IoT teknolojileriyle birleştiren, gerçek zamanlı takip ve uzaktan kontrol imkanı sunan bir akıllı güvenlik projesidir. Kasa kapağının izinsiz açılmasını algılar ve kullanıcıyı anında mobil bildirimlerle uyarır.
----
-## 🖼️ Proje Görselleri ve Tasarım
-Sistemin donanım mimarisi ve fiziksel yapısı aşağıda detaylandırılmıştır:
+# 🔐 Secure Case - Smart Security and IoT Safe System
 
-| **1. Devre Şeması (P1)** | **2. İç Tasarım ve Sensör (P2)** | **3. Kasa Genel Görünüm (P3)** |
+**Secure Case** is a smart security project that combines physical security with modern IoT technologies, offering real-time tracking and remote control capabilities. It detects unauthorized opening of the safe lid and instantly warns the user with mobile notifications.
+
+---
+
+## 🖼️ Project Visuals and Design
+
+The hardware architecture and physical structure of the system are detailed below:
+
+| **1. Circuit Diagram (P1)** | **2. Internal Design & Sensor (P2)** | **3. Overall Safe View (P3)** |
 | :--- | :--- | :--- |
 | ![Devre Şeması](Screenshots/p1.jpg) | ![İç Tasarım](Screenshots/p2.jpg) | ![Proje Fotoğrafı](Screenshots/p3.jpg) |
-| *Sistemin elektronik bağlantı planı.* | *Mesafe sensörünün stratejik konumu.* | *Bitmiş projenin dış görünüşü.* |
+| *The electronic connection plan of the system.* | *The strategic positioning of the distance sensor.* | *The external view of the finished project.* |
 
 ---
-## 🚀 Proje Genel Bakış
-Sistem, kasanın içine yerleştirilen bir mesafe sensörü (p2) aracılığıyla kapağın konumunu sürekli takip eder. Güvenlik modu aktifken gerçekleşen herhangi bir hareket (kapak açılması), sistemi alarm durumuna geçirir.
-* **Fiziksel Uyarı:** Kasa üzerinde bulunan **Buzzer** ve **LED** aracılığıyla sesli ve ışıklı alarm verilir.
-* **IoT Takip:** **MQTT** protokolü kullanılarak kasanın durumu anlık olarak mobil uygulamaya iletilir.
-* **Uzaktan Kontrol:** Mobil uygulama üzerinden güvenlik modu tek tuşla açılıp kapatılabilir.
+
+## 🚀 Project Overview
+
+The system constantly tracks the position of the lid through a distance sensor (p2) placed inside the safe. Any movement (opening of the lid) that occurs while the security mode is active puts the system into an alarm state.
+
+* **Physical Warning:** An audible and visual alarm is triggered via the **Buzzer** and **LED** located on the safe.
+* **IoT Tracking:** The status of the safe is instantly transmitted to the mobile application using the **MQTT** protocol.
+* **Remote Control:** The security mode can be turned on and off with a single button via the mobile application.
+
 ---
-## 🛠️ Teknik Bileşenler
-### Donanım (Hardware)
-* **Mesafe Sensörü (Ultrasonik):** Kasa kapağının açıklık durumunu hassas bir şekilde ölçer.
-* **Buzzer & LED:** İzinsiz giriş denemelerinde yerinde sesli ve görsel uyarı sağlar.
-* **Mikrodenetleyici:** Sensör verilerini işler ve Wi-Fi üzerinden buluta bağlanır.
-### Yazılım (Software)
-* **MQTT Protokolü:** Düşük gecikmeli, güvenilir veri iletimi sağlar.
-* **Mobil Uygulama:** Güvenlik durumunu yönetmek ve bildirim almak için tasarlanmış arayüz.
-* **Gömülü Yazılım:** Sensör verilerini analiz eden ve MQTT haberleşmesini yöneten C++ tabanlı yazılım.
+
+## 🛠️ Technical Components
+
+### Hardware
+* **Distance Sensor (Ultrasonic):** Precisely measures the openness status of the safe lid.
+* **Buzzer & LED:** Provides on-site audible and visual warnings during unauthorized access attempts.
+* **Microcontroller:** Processes sensor data and connects to the cloud via Wi-Fi.
+
+### Software
+* **MQTT Protocol:** Ensures low-latency, reliable data transmission.
+* **Mobile Application:** An interface designed to manage security status and receive notifications.
+* **Embedded Software:** A C++ based software that analyzes sensor data and manages MQTT communication.
+
 ---
-## ⚙️ Çalışma Mantığı
-1.  **Güvenlik Aktif:** Mobil uygulamadan güvenlik modu açılır. Mesafe sensörü kapağın kapalı olduğunu doğrular.
-2.  **İzinsiz Giriş:** Kapak açıldığında mesafe artar. Sistem bu farkı algılar.
-3.  **Alarm Durumu:** Aynı anda Buzzer öter, LED yanıp söner ve MQTT üzerinden telefona "Kasa Açıldı!" bildirimi gider.
-4.  **Devre Dışı Bırakma:** Kullanıcı kapağı açmak istediğinde önce mobil uygulamadan güvenliği kapatır, böylece alarm tetiklenmeden kasaya erişebilir.
+
+## ⚙️ Working Logic
+
+1.  **Security Active:** The security mode is turned on from the mobile application. The distance sensor verifies that the lid is closed.
+2.  **Unauthorized Access:** When the lid is opened, the distance increases. The system detects this difference.
+3.  **Alarm State:** Simultaneously, the Buzzer sounds, the LED flashes, and a "Safe Opened!" notification is sent to the phone over MQTT.
+4.  **Deactivation:** When the user wants to open the lid, they first turn off the security from the mobile application, thereby accessing the safe without triggering the alarm.
+
 ---
-## 🔓 Lisans
-Bu proje **MIT Lisansı** ile korunmaktadır.
+
+## 🔓 License
+
+This project is protected under the **MIT License**.
